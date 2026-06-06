@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Roadmap to Financial Freedom</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e45;
+    --navy-light: #243b55;
+    --gold: #e8c84a;
+    --gold-dim: #c4a832;
+    --green: #2ecc71;
+    --green-dim: #27ae60;
+    --cream: #f5f0e8;
+    --cream-dark: #ede4d3;
+    --text: #1a1a2e;
+    --muted: #6b7a8d;
+    --red: #e74c3c;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,200,74,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 100%, rgba(46,204,113,0.08) 0%, transparent 60%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(232,200,74,0.35);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.6);
+    margin-top: 20px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+  }
+
+  .hero-pillars {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pillar {
+    text-align: center;
+  }
+
+  .pillar-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .pillar-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+  /* ── SECTION WRAPPERS ── */
+  .section {
+    padding: 100px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  /* ── STEPS BAND ── */
+  .steps-band {
+    background: var(--navy);
+    padding: 100px 24px;
+  }
+
+  .steps-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .steps-band .section-label { color: rgba(255,255,255,0.4); }
+  .steps-band .section-title { color: var(--white); }
+  .steps-band .section-title span { color: var(--gold); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+  }
+
+  .step-card {
+    background: var(--navy-mid);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.25s;
+    border-top: 2px solid transparent;
+  }
+
+  .step-card:hover { background: var(--navy-light); border-top-color: var(--gold); }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(232,200,74,0.12);
+    line-height: 1;
+    margin-bottom: -8px;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .step-body {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  .step-body li { list-style: none; padding-left: 16px; position: relative; margin-bottom: 8px; }
+  .step-body li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; top: 2px; }
+
+  .step-tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid rgba(46,204,113,0.3);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── COMPOUND TABLE ── */
+  .compound-band {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a3a2a 100%);
+    padding: 100px 24px;
+  }
+
+  .compound-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .compound-band .section-label { color: rgba(255,255,255,0.4); }
+  .compound-band .section-title { color: var(--white); }
+  .compound-band .section-title span { color: var(--green); }
+
+  .compound-meta {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .meta-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-chip-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .meta-chip-value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .compound-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .compound-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .compound-table td {
+    padding: 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .compound-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  .compound-table .future-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .fv-20 { color: #7ec8e3; }
+  .fv-30 { color: #f0a500; }
+  .fv-40 { color: var(--green); }
+
+  .compound-quote {
+    margin-top: 48px;
+    padding: 36px 40px;
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--green);
+  }
+
+  .compound-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+
+  .compound-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    font-style: normal;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── INVESTING ── */
+  .invest-section { background: var(--cream); }
+
+  .invest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  @media(max-width:680px) { .invest-grid { grid-template-columns: 1fr; } }
+
+  .invest-card {
+    padding: 36px;
+    border: 1px solid var(--cream-dark);
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .invest-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+  .invest-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .invest-card.roth::before { background: var(--gold); }
+  .invest-card.r401k::before { background: var(--green); }
+  .invest-card.sectors::before { background: #e74c3c; }
+  .invest-card.simple::before { background: #3498db; }
+
+  .invest-card-icon { font-size: 2rem; margin-bottom: 16px; }
+
+  .invest-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .invest-card-body {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .invest-card-body li { list-style: none; padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .invest-card-body li::before { content: '•'; position: absolute; left: 0; color: var(--navy); }
+
+  .fund-pill {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .invest-banner {
+    grid-column: 1 / -1;
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .invest-banner-icon { font-size: 2.5rem; }
+  .invest-banner-body { flex: 1; min-width: 200px; }
+  .invest-banner-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 6px; }
+  .invest-banner-text { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  .pct-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── OTHER TIPS ── */
+  .tips-band {
+    background: var(--cream-dark);
+    padding: 100px 24px;
+  }
+
+  .tips-inner { max-width: 1100px; margin: 0 auto; }
+
+  .tips-masonry {
+    columns: 3 320px;
+    column-gap: 24px;
+  }
+
+  .tip-card {
+    break-inside: avoid;
+    background: var(--white);
+    padding: 28px 28px;
+    margin-bottom: 24px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .tip-card:hover { border-bottom-color: var(--gold); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+
+  .tip-emoji { font-size: 1.8rem; margin-bottom: 12px; }
+
+  .tip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .tip-body {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .tip-body li { list-style: none; padding-left: 16px; position: relative; margin-bottom: 5px; }
+  .tip-body li::before { content: '–'; position: absolute; left: 0; color: var(--navy-mid); }
+
+  /* ── AI POSTSCRIPT ── */
+  .ai-band {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2e45 60%, #0d2818 100%);
+    padding: 100px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-band::before {
+    content: 'AI';
+    position: absolute;
+    right: -60px;
+    top: -40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20rem;
+    font-weight: 900;
+    color: rgba(46,204,113,0.04);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .ai-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .ai-band .section-label { color: rgba(255,255,255,0.4); }
+  .ai-band .section-title { color: var(--white); }
+  .ai-band .section-title span { color: var(--green); }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  @media(max-width:600px) { .ai-grid { grid-template-columns: 1fr; } }
+
+  .ai-card {
+    background: rgba(255,255,255,0.04);
+    padding: 36px;
+    transition: background 0.25s;
+  }
+
+  .ai-card:hover { background: rgba(255,255,255,0.07); }
+  .ai-card-icon { font-size: 2rem; margin-bottom: 14px; }
+  .ai-card-title { font-size: 1rem; font-weight: 600; color: var(--green); margin-bottom: 8px; letter-spacing: 0.03em; }
+  .ai-card-body { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  .ai-tools {
+    margin-top: 40px;
+    padding: 32px;
+    background: rgba(46,204,113,0.07);
+    border: 1px solid rgba(46,204,113,0.2);
+  }
+
+  .ai-tools-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+
+  .tool-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .tool-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    border: 1px solid rgba(46,204,113,0.35);
+    padding: 5px 14px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── GIVE SECTION ── */
+  .give-band {
+    background: var(--cream);
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .give-inner { max-width: 760px; margin: 0 auto; }
+
+  .give-heart { font-size: 4rem; margin-bottom: 24px; }
+
+  .give-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .give-cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  .give-emerson {
+    margin-top: 64px;
+    padding: 48px;
+    background: var(--navy);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .give-emerson::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14rem;
+    color: rgba(232,200,74,0.07);
+    line-height: 1;
+  }
+
+  .give-emerson blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .give-emerson cite {
+    display: block;
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    font-style: normal;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 60px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-mantra {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-mantra span { color: var(--gold); font-style: italic; }
+
+  .footer-sub {
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  @media(max-width:600px) { .nav-links { display: none; } }
+
+  /* ── KEY PRINCIPLES BAR ── */
+  .principles-bar {
+    background: var(--gold);
+    padding: 32px 24px;
+    overflow: hidden;
+  }
+
+  .principles-scroll {
+    display: flex;
+    gap: 64px;
+    animation: scroll-x 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .principles-scroll:hover { animation-play-state: paused; }
+
+  .principle-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .principle-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); opacity: 0.4; flex-shrink: 0; }
+
+  /* animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Financial Freedom</a>
+  <ul class="nav-links">
+    <li><a href="#foundation">Foundation</a></li>
+    <li><a href="#compound">Compound</a></li>
+    <li><a href="#invest">Invest</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#ai">AI Era</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">A Practical Guide · Build Wealth · Live Well · Give Generously</div>
+  <h1>Your Roadmap to<br><span>Financial Freedom</span></h1>
+  <p class="hero-sub">A practical guide to build wealth, live well, and give generously — starting today, not someday.</p>
+  <div class="hero-pillars">
+    <div class="pillar"><div class="pillar-icon">🛡️</div><div class="pillar-label">Protect</div></div>
+    <div class="pillar"><div class="pillar-icon">📈</div><div class="pillar-label">Grow</div></div>
+    <div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-label">Invest</div></div>
+    <div class="pillar"><div class="pillar-icon">❤️</div><div class="pillar-label">Give</div></div>
+  </div>
+  <div class="scroll-hint">↓ &nbsp; Scroll to begin</div>
+</section>
+
+<!-- PRINCIPLES TICKER -->
+<div class="principles-bar">
+  <div class="principles-scroll">
+    <div class="principle-item"><span class="principle-dot"></span> Start Early — Time is your greatest asset</div>
+    <div class="principle-item"><span class="principle-dot"></span> Live Below Your Means — Freedom over Stuff</div>
+    <div class="principle-item"><span class="principle-dot"></span> Invest Consistently — Small steps, big results</div>
+    <div class="principle-item"><span class="principle-dot"></span> Give Generously — Wealth is more fulfilling when shared</div>
+    <div class="principle-item"><span class="principle-dot"></span> Be Patient · Be Disciplined · Be Generous</div>
+    <div class="principle-item"><span class="principle-dot"></span> Start Early — Time is your greatest asset</div>
+    <div class="principle-item"><span class="principle-dot"></span> Live Below Your Means — Freedom over Stuff</div>
+    <div class="principle-item"><span class="principle-dot"></span> Invest Consistently — Small steps, big results</div>
+    <div class="principle-item"><span class="principle-dot"></span> Give Generously — Wealth is more fulfilling when shared</div>
+    <div class="principle-item"><span class="principle-dot"></span> Be Patient · Be Disciplined · Be Generous</div>
+  </div>
+</div>
+
+<!-- FOUNDATION STEPS -->
+<section id="foundation" class="steps-band">
+  <div class="steps-inner">
+    <p class="section-label fade-up">Step by Step</p>
+    <h2 class="section-title fade-up">Lay the <span>Foundation</span> First</h2>
+    <div class="steps-grid">
+
+      <div class="step-card fade-up">
+        <div class="step-num">01</div>
+        <div class="step-title">Don't Be That Guy</div>
+        <ul class="step-body">
+          <li>Save $1,000 for your starter emergency fund.</li>
+          <li>Keep it in a savings account tied to your checking for easy access.</li>
+        </ul>
+        <span class="step-tag">Emergency Fund — Phase 1</span>
+      </div>
+
+      <div class="step-card fade-up">
+        <div class="step-num">02</div>
+        <div class="step-title">Debt is Bad</div>
+        <ul class="step-body">
+          <li>Pay off all debt (except the house) using the debt snowball method.</li>
+          <li>Attack smallest balances first — build momentum and motivation.</li>
+        </ul>
+        <span class="step-tag">Debt Elimination</span>
+      </div>
+
+      <div class="step-card fade-up">
+        <div class="step-num">03</div>
+        <div class="step-title">Don't Be That Guy: Part II</div>
+        <ul class="step-body">
+          <li>Save 3–6 months of expenses in a fully funded emergency fund.</li>
+          <li>Use a money market account or a short-term bond fund ETF.</li>
+          <li>Recommended: SGOV — iShares 0-3 Month Treasury Bond ETF.</li>
+        </ul>
+        <span class="step-tag">Emergency Fund — Phase 2</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPOUND INTEREST -->
+<section id="compound" class="compound-band">
+  <div class="compound-inner">
+    <p class="section-label fade-up">The 8th Wonder of the World</p>
+    <h2 class="section-title fade-up">The Power of <span>Compound Interest</span></h2>
+
+    <div class="compound-meta fade-up">
+      <div class="meta-chip">
+        <span class="meta-chip-label">Typical Salary</span>
+        <span class="meta-chip-value">$75,000</span>
+      </div>
+      <div class="meta-chip">
+        <span class="meta-chip-label">Annual Investment (15%)</span>
+        <span class="meta-chip-value">$11,250</span>
+      </div>
+      <div class="meta-chip">
+        <span class="meta-chip-label">Avg. Annual Return</span>
+        <span class="meta-chip-value">11%</span>
+      </div>
+    </div>
+
+    <table class="compound-table fade-up">
+      <thead>
+        <tr>
+          <th>Years Invested</th>
+          <th>Annual Return</th>
+          <th>Total Contributions</th>
+          <th>Estimated Future Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#fff">20 Years</strong></td>
+          <td>11%</td>
+          <td>$225,000</td>
+          <td><span class="future-value fv-20">$537,534</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">30 Years</strong></td>
+          <td>11%</td>
+          <td>$337,500</td>
+          <td><span class="future-value fv-30">$1,351,147</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">40 Years</strong></td>
+          <td>11%</td>
+          <td>$450,000</td>
+          <td><span class="future-value fv-40">$2,817,336</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- COMPOUND INTEREST CHART -->
+    <div class="fade-up" style="margin-top:48px;">
+      <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-bottom:16px;">
+        <p style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0;">Portfolio Growth Over Time — $11,250/yr at 11%</p>
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.55)"><span style="width:28px;height:3px;background:#7ec8e3;display:inline-block;border-radius:2px"></span>Future Value</span>
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.55)"><span style="width:28px;height:3px;background:rgba(232,200,74,0.55);display:inline-block;border-radius:2px;border-top:2px dashed #e8c84a;height:0"></span>Contributions</span>
+        </div>
+      </div>
+      <div style="position:relative;width:100%;height:340px;">
+        <canvas id="compoundChart" role="img" aria-label="Line chart showing portfolio future value vs contributions over 40 years, reaching $2.8 million at 40 years versus $450,000 in contributions">
+          Future value at 20 years: $537,534. At 30 years: $1,351,147. At 40 years: $2,817,336. Total contributions at 40 years: $450,000.
+        </canvas>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+    (function(){
+      function fv(years){ var r=0.11,pmt=11250,total=0; for(var i=0;i<years;i++){total=(total+pmt)*(1+r);} return Math.round(total); }
+      var labels=[],fvData=[],contribData=[];
+      for(var y=1;y<=40;y++){ labels.push(y); fvData.push(fv(y)); contribData.push(y*11250); }
+      new Chart(document.getElementById('compoundChart'),{
+        type:'line',
+        data:{
+          labels:labels,
+          datasets:[
+            { label:'Future Value', data:fvData, borderColor:'#7ec8e3', backgroundColor:'rgba(126,200,227,0.08)', borderWidth:2.5, pointRadius:0, pointHoverRadius:5, pointHoverBackgroundColor:'#7ec8e3', fill:true, tension:0.35 },
+            { label:'Contributions', data:contribData, borderColor:'rgba(232,200,74,0.6)', backgroundColor:'transparent', borderWidth:1.5, borderDash:[6,4], pointRadius:0, pointHoverRadius:4, pointHoverBackgroundColor:'#e8c84a', fill:false, tension:0 }
+          ]
+        },
+        options:{
+          responsive:true, maintainAspectRatio:false,
+          interaction:{ mode:'index', intersect:false },
+          plugins:{
+            legend:{ display:false },
+            tooltip:{
+              backgroundColor:'rgba(13,27,42,0.95)',
+              titleColor:'rgba(255,255,255,0.9)',
+              bodyColor:'rgba(255,255,255,0.65)',
+              borderColor:'rgba(255,255,255,0.1)',
+              borderWidth:1,
+              padding:12,
+              callbacks:{
+                title: function(items){ return 'Year '+items[0].label; },
+                label: function(item){ return ' '+item.dataset.label+': $'+item.raw.toLocaleString(); }
+              }
+            }
+          },
+          scales:{
+            x:{
+              grid:{ color:'rgba(255,255,255,0.05)' },
+              ticks:{
+                color:'rgba(255,255,255,0.35)',
+                font:{ family:"'DM Mono', monospace", size:10 },
+                maxTicksLimit:9,
+                callback: function(val,i){ return labels[i]+'y'; }
+              },
+              border:{ color:'rgba(255,255,255,0.1)' }
+            },
+            y:{
+              grid:{ color:'rgba(255,255,255,0.05)' },
+              ticks:{
+                color:'rgba(255,255,255,0.35)',
+                font:{ family:"'DM Mono', monospace", size:10 },
+                callback: function(v){ return v>=1000000 ? '$'+(v/1000000).toFixed(1)+'M' : '$'+(v/1000).toFixed(0)+'K'; }
+              },
+              border:{ color:'rgba(255,255,255,0.1)' }
+            }
+          }
+        }
+      });
+    })();
+    </script>
+
+    <div class="compound-quote fade-up">
+      <blockquote>"Compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it."</blockquote>
+      <cite>— Albert Einstein</cite>
+    </div>
+
+    <div class="compound-quote fade-up" style="margin-top:16px; border-left-color: var(--gold);">
+      <blockquote>"A wage pays you when you are awake. Wealth pays you when you are asleep."</blockquote>
+      <cite>— Unknown</cite>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTING STRATEGY -->
+<section id="invest" class="section invest-section">
+  <p class="section-label fade-up">Build Wealth</p>
+  <h2 class="section-title fade-up">Your Investing <span style="color:var(--gold);">Playbook</span></h2>
+  <div class="invest-grid">
+
+    <div class="invest-banner fade-up">
+      <div class="invest-banner-icon">📊</div>
+      <div class="invest-banner-body">
+        <div class="invest-banner-title">The Golden Rule</div>
+        <div class="invest-banner-text">Invest 15–20% of your household income for retirement. If your employer matches 401k contributions, max it out — it's an instant 100% return on that money.</div>
+      </div>
+      <div class="pct-badge">15%</div>
+    </div>
+
+    <div class="invest-card roth fade-up">
+      <div class="invest-card-icon">🏦</div>
+      <div class="invest-card-title">Roth IRA — Pay Taxes Now</div>
+      <div class="invest-card-body">
+        <p style="margin-bottom:10px">Since you are young, go with the Roth IRA. Pay the taxes now — growth and profit will be completely tax-free going forward.</p>
+      </div>
+    </div>
+
+    <div class="invest-card r401k fade-up">
+      <div class="invest-card-icon">💼</div>
+      <div class="invest-card-title">401k — Free Money Alert</div>
+      <div class="invest-card-body">
+        <p>If your employer matches contributions, maxing your 401k is like getting an immediate guaranteed return. Do not leave that on the table.</p>
+      </div>
+    </div>
+
+    <div class="invest-card sectors fade-up">
+      <div class="invest-card-icon">🚀</div>
+      <div class="invest-card-title">Go Aggressive (For Now)</div>
+      <div class="invest-card-body">
+        <p style="margin-bottom:12px">Concentrate in high-growth sectors while young. As you get older, shift to target-date funds.</p>
+        <ul>
+          <li>Technology</li>
+          <li>Artificial Intelligence</li>
+          <li>Robotics (very aggressive — know what you're doing)</li>
+          <li>Healthcare</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="invest-card simple fade-up">
+      <div class="invest-card-icon">🎯</div>
+      <div class="invest-card-title">Keep It Simple: Index Funds</div>
+      <div class="invest-card-body">
+        <p style="margin-bottom:12px">Broad index funds are your best friend. Diversified, low-cost, proven.</p>
+        <div>
+          <span class="fund-pill">Vanguard 500</span>
+          <span class="fund-pill">VTI — Total Market</span>
+          <span class="fund-pill">QQQ — Nasdaq 100</span>
+        </div>
+        <p style="margin-top:12px">QQQ is tech-heavy but powerful. Buy individual stocks only <em>after</em> all of the above is in place.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OTHER TIPS -->
+<section id="tips" class="tips-band">
+  <div class="tips-inner">
+    <p class="section-label fade-up">Financial Hygiene</p>
+    <h2 class="section-title fade-up" style="color:var(--navy)">Other <span style="color:var(--gold-dim)">Tips</span> That Matter</h2>
+    <div class="tips-masonry">
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">🏠</div>
+        <div class="tip-title">Don't Become House Poor</div>
+        <div class="tip-body">The rules have changed. A house is no longer just an asset — in many ways, it is a liability. Factor in taxes, maintenance, and opportunity cost before buying.</div>
+      </div>
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">📉</div>
+        <div class="tip-title">Minimize Depreciating Assets</div>
+        <div class="tip-body">Cars, electronics, and luxury goods lose value the moment you buy them. Keep these acquisitions to a minimum.</div>
+      </div>
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">💸</div>
+        <div class="tip-title">Avoid Lifestyle Inflation</div>
+        <div class="tip-body">
+          <p>Hedonic adaptation is real — and very middle class. Every raise is a wealth-building opportunity, not a spending permission slip.</p>
+        </div>
+      </div>
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">🔒</div>
+        <div class="tip-title">Keep Your Assets Secure</div>
+        <div class="tip-body">
+          <ul>
+            <li>Loose lips sink ships — there are sharks everywhere</li>
+            <li>Encrypt everything sensitive</li>
+            <li>Use passphrases, not passwords</li>
+            <li>Use Secure ID tokens or SSO when possible</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">🧠</div>
+        <div class="tip-title">Build Your Talent Stack</div>
+        <div class="tip-body">A talent stack is combining multiple complementary skills to create a unique, highly valuable professional profile — rather than being the absolute best at one highly competitive discipline.</div>
+      </div>
+
+      <div class="tip-card fade-up">
+        <div class="tip-emoji">🎲</div>
+        <div class="tip-title">Have Fun — Responsibly</div>
+        <div class="tip-body">After all your bases are covered, invest in some fun and "Hail Mary" companies from time to time. Life is meant to be enjoyed, not just optimized.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI POSTSCRIPT -->
+<section id="ai" class="ai-band">
+  <div class="ai-inner">
+    <p class="section-label fade-up">Post Script · The New Frontier</p>
+    <h2 class="section-title fade-up">We Are in an Economic <span>Super Cycle</span></h2>
+    <p style="color:rgba(255,255,255,0.55); margin-bottom:48px; max-width:640px; font-size:1rem; line-height:1.7;" class="fade-up">More wealth is going to be made in the next few years than at any other time in history. The AI boom is here. Position yourself accordingly.</p>
+
+    <div class="ai-grid fade-up">
+      <div class="ai-card">
+        <div class="ai-card-icon">📈</div>
+        <div class="ai-card-title">Invest in AI Stocks</div>
+        <div class="ai-card-body">The artificial intelligence revolution is the current economic super cycle. Strategic AI-focused positions can meaningfully amplify your portfolio — after you've followed all the foundational advice first.</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">⚡</div>
+        <div class="ai-card-title">Learn Agentic Tools</div>
+        <div class="ai-card-body">Leverage AI tools to your competitive advantage in work, business, and investing. Those who master these tools will have an enormous edge over those who don't.</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">🏢</div>
+        <div class="ai-card-title">Start a Small Business</div>
+        <div class="ai-card-body">Use AI tools to build and foster your business at a fraction of the traditional cost. The barrier to entrepreneurship has never been lower.</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">🌐</div>
+        <div class="ai-card-title">The Opportunity Window</div>
+        <div class="ai-card-body">We are at the beginning of the AI cycle — not the end. Early movers who invest in the right companies and acquire the right skills will benefit most from the wave ahead.</div>
+      </div>
+    </div>
+
+    <div class="ai-tools fade-up">
+      <div class="ai-tools-label">AI Tools to Master</div>
+      <div class="tool-chips">
+        <span class="tool-chip">Claude</span>
+        <span class="tool-chip">Perplexity</span>
+        <span class="tool-chip">Midjourney</span>
+        <span class="tool-chip">Adobe Firefly</span>
+        <span class="tool-chip">Gemini</span>
+        <span class="tool-chip">Grok</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD WEALTH & GIVE -->
+<section class="give-band">
+  <div class="give-inner">
+    <div class="give-heart fade-up">❤️</div>
+    <p class="section-label fade-up" style="text-align:center">Build Wealth & Give</p>
+    <h2 class="section-title fade-up" style="text-align:center">The Final <span style="color:var(--gold-dim)">Destination</span></h2>
+
+    <blockquote class="give-quote fade-up">
+      "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+    </blockquote>
+    <p class="give-cite fade-up">— 2 Corinthians 9:7 (NIV)</p>
+
+    <div class="give-emerson fade-up">
+      <blockquote>"What lies behind us and what lies before us are tiny matters compared to what lies within us."</blockquote>
+      <cite>— Ralph Waldo Emerson</cite>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-mantra">Be Patient. Be Disciplined. Be Generous. <span>You got this.</span></p>
+  <p class="footer-sub">Your Roadmap to Financial Freedom · A Practical Guide</p>
+</footer>
+
+<script>
+  // Intersection Observer for fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.dataset.delay = (i % 4) * 80;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
